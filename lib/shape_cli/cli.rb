@@ -12,17 +12,20 @@ class ShapeCli::CLI
 |                                                                        |
 |________________________________________________________________________|" 
     menu
-    exit
   end
   
   def display_articles
    puts "
+                                Shape CLI  
  _________________________________________________________________________   
 | Enter a number from the list of latest popular topics in Lifestyle      |
-| below to view more details                                              |"                
+| below to view more details                                              |
+"                
     @article = ShapeCli::Article.popular
     @article.each.with_index(1) do |a, i|
-     puts "|#{i}| #{a}"
+     puts "
+| |#{i}|  #{a}                                                            |
+|_________________________________________________________________________|"
     end
   end
   
@@ -31,7 +34,7 @@ class ShapeCli::CLI
                                 SHAPE CLI 
  _________________________________________________________________________
 |                                                                         |
-|     Enter Y/N  :                                                        |
+|     Y = Yes, display articles / N = No, thank you                       |
 |_________________________________________________________________________|"
      input = nil
       while input != "exit" && input != "N"
@@ -39,14 +42,14 @@ class ShapeCli::CLI
       case input
         when "Y" 
           puts display_articles
-        when "N" 
-          puts exit
+        when "N" ||  "exit" 
+          exit
         else
           puts "
                                 SHAPE CLI 
  _________________________________________________________________________
 |                                                                         |
-|     Y = Yes, display articles / N = No, thank you / exit  :             |
+|     Y = Yes, display articles / N = No, thank you, let's exit  :        |
 |_________________________________________________________________________|"
           end        
         end
