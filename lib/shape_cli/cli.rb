@@ -39,7 +39,7 @@ class ShapeCli::CLI
                                 SHAPE CLI 
  _________________________________________________________________________
 |                                                                         |
-|     Y = yes, display articles / N = no, thank you / exit  :             |
+|     Y = Yes, display articles / N = No, thank you / exit  :             |
 |_________________________________________________________________________|"
       end
     end
