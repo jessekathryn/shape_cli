@@ -10,8 +10,8 @@ class ShapeCli::CLI
    | Want tips and info on beauty, fashion, travel, health, sex, love and   |
    | everything else you need to live a fuller and happier life?            |
    |                                                                        |
-   | Enter Y/N                                                              |
    |________________________________________________________________________|" 
+   menu
    display_articles
   end
   
@@ -28,7 +28,15 @@ class ShapeCli::CLI
    |    |3|   10 Simple Rules for a Healthy Life                            |  
    |    |4|   3 Cool Winter Hairstyles                                      |
    |    |5|   7 Mind Tricks for Self-Motivation                             |               
-   |________________________________________________________________________|"
+   |________________________________________________________________________|
+   "
   end
 end
   
+  def menu 
+    puts "
+                                  SHAPE CLI 
+    _________________________________________________________________________
+   |                                                                         |
+   |     Enter Y/N  :                                                        |
+   | ________________________________________________________________________|
