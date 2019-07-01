@@ -1,7 +1,7 @@
 require "shape_cli/version"
 
-module ShapeCli #zerp
-  class ShapeConsole #chatter
+module ShapeCli #zerp following the set-up for article on how to build a gem https://robdodson.me/how-to-write-a-command-line-ruby-gem/
+  class ShapeConsole #chatter class name found on https://robdodson.me/how-to-write-a-command-line-ruby-gem/
   
 def say_hi
   puts "SHAPE CLI 

@@ -11,3 +11,10 @@ Pry.start
 
 require "irb"
 IRB.start(__FILE__)
+
+console = ShapeCLI::ShapeConsole.new
+
+console.say_hi
+
+
+
