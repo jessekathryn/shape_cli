@@ -1,4 +1,6 @@
 #CLI Controller
+require_relative './shape_cli/version'
+
 class ShapeCli::CLI 
   
   def call
