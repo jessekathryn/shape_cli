@@ -23,10 +23,11 @@ class ShapeCli::CLI
 "                
     @article = ShapeCli::Article.popular
     @article.each.with_index(1) do |a, i|
-     puts "
-| |#{i}|  #{a}                                                            |
-|_________________________________________________________________________|"
+     puts
+"| |#{i}|  #{a} |"
     end
+    puts 
+"|_________________________________________________________________________|"
   end
   
   def menu 
@@ -42,7 +43,7 @@ class ShapeCli::CLI
       case input
         when "Y" 
           puts display_articles
-        when "N" ||  "exit" 
+        when "N" &&  "exit" 
           exit
         else
           puts "
@@ -60,7 +61,7 @@ class ShapeCli::CLI
     puts "
  _________________________________________________________________________
 |                                                                         |
-|  You will now exit! Thank you for using Shape CLI! Have a nice day~     |
+|  Exiting.. Thank you for using Shape CLI! Have a nice day~              |
 |_________________________________________________________________________|"
     end 
   end
