@@ -38,23 +38,30 @@ class ShapeCli::CLI
 |                                                                         |
 |     Enter Y/N  :                                                        |
 |_________________________________________________________________________|"
-   input = nil
-    while input != "exit" && input != "N"
-      input = gets.strip
-      case input
-      when "Y" 
-        puts display_articles
-      when "N" 
-        puts exit
+     input = nil
+      while input != "exit" && input != "N"
+        input = gets.strip
+        case input
+        when "Y" 
+          puts display_articles
+        when "N" 
+          puts exit
+        else
+          puts "
+                                SHAPE CLI 
+ _________________________________________________________________________
+|                                                                         |
+|     Y = yes, display articles / N = no, thank you / exit  :             |
+|_________________________________________________________________________|"
       end
     end
   end
   
   def exit
-   puts "
+    puts "
  _________________________________________________________________________
 |                                                                         |
-|  You will now exit! Thank you for trying Shape CLI! Have a nice day~    |
+|  You will now exit! Thank you for using Shape CLI! Have a nice day~     |
 |_________________________________________________________________________|"
-  end 
+    end 
 end
