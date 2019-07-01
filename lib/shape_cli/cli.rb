@@ -17,7 +17,7 @@ class ShapeCli::CLI
   
   def display_articles
     @article = ShapeCli::Article.popular
-    @article.each_with_index do |a, i|
+    @article.each.with_index(1) do |a, i|
      puts "#{i}. #{a}"
     end
   end
