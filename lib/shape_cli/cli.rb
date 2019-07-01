@@ -29,6 +29,7 @@ class ShapeCli::CLI
 |    |4|   3 Cool Winter Hairstyles                                      |
 |    |5|   7 Mind Tricks for Self-Motivation                             |
 |________________________________________________________________________|"
+    @articles = ShapeCli::Articles.all
   end
   
   def menu 
