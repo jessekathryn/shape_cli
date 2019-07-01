@@ -16,7 +16,7 @@ class ShapeCli::CLI
   end
   
   def display_articles
-    puts <<-DOC
+    puts "
                                    SHAPE CLI 
     ________________________________________________________________________
    |                                                                        |
@@ -29,7 +29,6 @@ class ShapeCli::CLI
    |    |4|   3 Cool Winter Hairstyles                                      |
    |    |5|   7 Mind Tricks for Self-Motivation                             |               
    |________________________________________________________________________|"
-    DOC
   end
 end
   
