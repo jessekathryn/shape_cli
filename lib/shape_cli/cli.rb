@@ -12,7 +12,6 @@ class ShapeCli::CLI
    |                                                                        |
    |________________________________________________________________________|" 
    menu
-   display_articles
   end
   
   def display_articles
@@ -43,6 +42,11 @@ class ShapeCli::CLI
     when "Y" 
       puts display_articles
     when "N"
-      puts "Thank you for trying Shape CLI! Have a nice day and visit often~"
- end
+      puts "
+    _________________________________________________________________________
+   |                                                                         |
+   |  You will now exit! Thank you for trying Shape CLI! Have a nice day.    |
+   |_________________________________________________________________________|"
+    end
+  end
 end
