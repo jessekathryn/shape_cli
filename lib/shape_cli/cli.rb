@@ -37,6 +37,12 @@ class ShapeCli::CLI
     _________________________________________________________________________
    |                                                                         |
    |     Enter Y/N  :                                                        |
-   | ________________________________________________________________________|"
+   |_________________________________________________________________________|"
+    input = gets.strip
+    case input
+    when "Y" 
+      puts display_articles
+    when "N"
+      puts "Thank you for trying Shape CLI! Have a nice day and visit often~"
  end
 end
