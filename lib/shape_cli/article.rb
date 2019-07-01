@@ -2,7 +2,7 @@ class ShapeCli::Article
   
 attr_accessor :article, :name, :url, :summary, :date, :author
 
-  def self.all 
+  def self.popular
     puts "
                               SHAPE CLI 
  ________________________________________________________________________ 
