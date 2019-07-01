@@ -3,25 +3,27 @@ class ShapeCli::Article
 attr_accessor :article, :name, :url, :summary, :date, :author
 
   def self.popular
-    puts "
-                              SHAPE CLI 
- ________________________________________________________________________ 
-|                                                                        |
-|    Enter a number from the list of latest popular topics in Lifestyle  |
-|    below to view more details                                          |
-|                                                                        |
-|    |1|   5 Ways to Change Your Life -- For Good                        |
-|    |2|   What Really Helps Get Rid of Cellulite?                       |  
-|    |3|   10 Simple Rules for a Healthy Life                            |   
-|    |4|   3 Cool Winter Hairstyles                                      |
-|    |5|   7 Mind Tricks for Self-Motivation                             |
-|________________________________________________________________________|"
+  
+#puts "
+#                              SHAPE CLI 
+# ________________________________________________________________________ 
+#|                                                                        |
+#|    Enter a number from the list of latest popular topics in Lifestyle  |
+#|    below to view more details                                          |
+#|                                                                        |
+#|    |1|   5 Ways to Change Your Life -- For Good                        |
+#|    |2|   What Really Helps Get Rid of Cellulite?                       |  
+#|    |3|   10 Simple Rules for a Healthy Life                            |   
+#|    |4|   3 Cool Winter Hairstyles                                      |
+#|    |5|   7 Mind Tricks for Self-Motivation                             |
+#|________________________________________________________________________|"
+  
   article_1 = self.new
   article_1.name = "5 Ways to Change Your Life -- For Good"
   article_1.url = "https://www.shape.com/lifestyle"
-  article.summary = "Five no-fail strategies to finally stick to your goals"
-  article.date = "Updated: March 01, 2019"
-  article.author = "By Barbara Brody"
+  article_1.summary = "Five no-fail strategies to finally stick to your goals"
+  article_1.date = "Updated: March 01, 2019"
+  article_1.author = "By Barbara Brody"
   
   article_2 = self.new
   article_2.name = "What Really Helps Get Rid of Cellulite?"
