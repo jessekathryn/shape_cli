@@ -16,9 +16,13 @@ class ShapeCli::CLI
   end
   
   def display_articles
+   puts "
+ _________________________________________________________________________   
+| Enter a number from the list of latest popular topics in Lifestyle      |
+| below to view more details                                              |"                
     @article = ShapeCli::Article.popular
     @article.each.with_index(1) do |a, i|
-     puts "#{i}. #{a}"
+     puts "|#{i}| #{a}"
     end
   end
   
