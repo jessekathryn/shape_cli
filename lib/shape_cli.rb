@@ -1,5 +1,2 @@
 require "shape_cli/version"
-
-module ShapeCli 
-  
-end
+require_relative './shape_cli/cli'
