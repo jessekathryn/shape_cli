@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Jesse Barnes'"]
   spec.email         = ["'jessekathrynbarnes@gmail.com'"]
 
-  spec.summary       = %q{"Want tips and info on beauty, fashion, travel, health, sex, love and                                everything else you need to live a fuller and happier life?"}
+  spec.summary       = %q{"Tips on everything you need to live a fuller and happier life"}
   spec.description   = %q{"Shape CLI sources top popular topics in Lifestyle from Shape.com".}
   spec.homepage      = "https://github.com/jessekathryn/shape_cli"
   spec.license       = "MIT"
