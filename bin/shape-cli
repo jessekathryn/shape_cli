@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "shape_cli"
-require "pry"
+require_relative './lib/shape_cli'
 
 ShapeCli::CLI.new.call
