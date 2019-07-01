@@ -1,7 +1,7 @@
 require "shape_cli/version"
 
 module ShapeCli #zerp
-  class ShapeInterface #chatter
+  class ShapeConsole #chatter
   
 def say_hi
   puts "SHAPE CLI 

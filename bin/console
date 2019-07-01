@@ -12,6 +12,8 @@ Pry.start
 require "irb"
 IRB.start(__FILE__)
 
-shape_interface = ShapeCLI::ShapeInterface.new
+console = ShapeCLI::ShapeConsole.new
+
+sh
 
 
