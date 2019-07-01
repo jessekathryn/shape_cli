@@ -1,8 +1,8 @@
-# ShapeCli
+# Shape CLI README
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/shape_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to Shape CLI gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/shape_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+The Shape CLI will scrape data from on Shape.com. It lists the top articles, as well as, their respective attributes: date, author, url in Fitness/mind-and-body catagory. Shape_CLI goes a second level deeper, prompting the user to choose an article to read, if interested.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Follow the command prompts to read each popular article and it's details by running `bin/console`.
 
 ## Development
 
