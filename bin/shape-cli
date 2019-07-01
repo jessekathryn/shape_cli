@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative './lib/shape_cli'
+require './lib/shape_cli'
 
 ShapeCli::CLI.new.call
