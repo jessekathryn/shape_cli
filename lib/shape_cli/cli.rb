@@ -16,10 +16,10 @@ class ShapeCli::CLI
 
 
   def menu 
-    puts "_________________________________________________________________________
-|                                                                         |
-|     Y = Yes, display articles / N = No, thank you                       |
-|_________________________________________________________________________|"
+    puts " ________________________________________________________________________
+|                                                                        |
+|     Y = Yes, display articles / N = No, thank you                      |
+|________________________________________________________________________|"
      input = nil
       input = gets.strip
         case input
@@ -51,7 +51,7 @@ class ShapeCli::CLI
 |                                                                         |"   
     @article = ShapeCli::Article.popular
     @article.each.with_index(1) do |a, i|
-     puts "| |#{i}|  #{a.name}                            |"
+     puts "| |#{i}|  #{a.name}"
     end
     puts"|_________________________________________________________________________|"
     display_details
@@ -68,12 +68,12 @@ class ShapeCli::CLI
                                 SHAPE CLI 
  _________________________________________________________________________
 |                                                                         |
-|   #{the_article.name}                                |
-|   #{the_article.summary}                        |
-|   #{the_article.url}                            |
-|   #{the_article.author}                         |
-|   #{the_article.author}                           |
-|   #{the_article.date}                                 |
+|   #{the_article.name}                           
+|   #{the_article.summary}                        
+|   #{the_article.url}                            
+|   #{the_article.author}                         
+|   #{the_article.author}                         
+|   #{the_article.date}                           
 |_________________________________________________________________________|"
       elsif input == ""
         puts "
