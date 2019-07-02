@@ -20,15 +20,12 @@ class ShapeCli::CLI
  _________________________________________________________________________   
 | Enter a number from the list of latest popular topics in Lifestyle      |
 | below to view more details                                              |
-|                                                                         |
-"                
+|                                                                         |"   
     @article = ShapeCli::Article.popular
     @article.each.with_index(1) do |a, i|
-     puts
-"| |#{i}|  #{a} |"
+     puts "| |#{i}|  #{a}                            |"
     end
-    puts 
-"|_________________________________________________________________________|"
+    puts"|_________________________________________________________________________|"
   end
   
   def menu 
