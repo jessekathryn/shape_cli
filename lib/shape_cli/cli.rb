@@ -26,6 +26,24 @@ class ShapeCli::CLI
      puts "| |#{i}|  #{a}                            |"
     end
     puts"|_________________________________________________________________________|"
+    input = nil
+      while input != "exit" && input != "N"
+        input = gets.strip  
+        
+        if input.to_i > 0 
+          the_article = @article[input.to_i - 1]
+          puts "
+                                SHAPE CLI 
+ _________________________________________________________________________
+|                                                                         |
+|   #{the_article.name}                                                   |
+|   #{the_article.summary}                                                |
+|   #{the_article.url}                                                    |
+|   #{the_article.author}                                                 |
+|   #{the_article.author}                                                 |
+|   #{the_article.date}                                                   |
+|_________________________________________________________________________|"
+
   end
   
   def menu 
