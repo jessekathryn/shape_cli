@@ -20,6 +20,7 @@ class ShapeCli::CLI
  _________________________________________________________________________   
 | Enter a number from the list of latest popular topics in Lifestyle      |
 | below to view more details                                              |
+|                                                                         |
 "                
     @article = ShapeCli::Article.popular
     @article.each.with_index(1) do |a, i|
@@ -43,7 +44,9 @@ class ShapeCli::CLI
       case input
         when "Y" 
           puts display_articles
-        when "N" &&  "exit" 
+        when "N"  
+          exit
+        when "exit"
           exit
         else
           puts "
