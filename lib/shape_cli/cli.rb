@@ -21,17 +21,16 @@ class ShapeCli::CLI
 |     Y = Yes, display articles / N = No, thank you                       |
 |_________________________________________________________________________|"
      input = nil
-      while input != "exit" && input != "N"
-        input = gets.strip
-      case input
+      input = gets.strip
+        case input
         when "Y" 
           puts display_articles
         when "N"  
-          exit
+          puts exit
         when "back"
-          home
+          puts home
         when "exit"
-          exit
+          puts exit
         else
           puts "
                                 SHAPE CLI 
@@ -39,9 +38,9 @@ class ShapeCli::CLI
 |                                                                         |
 |     Y = Yes, display articles / N = No, thank you, let's exit  :        |
 |_________________________________________________________________________|"
-          end        
-        end
-      end  
+      end        
+    end
+    
       
   def display_articles
    puts "
@@ -57,7 +56,6 @@ class ShapeCli::CLI
     puts"|_________________________________________________________________________|"
     display_details
    end
-  end  
  
  def display_details   
     input = nil
@@ -81,13 +79,16 @@ class ShapeCli::CLI
         puts "
  _________________________________________________________________________
 |                                                                         |
-|  Please, enter a number between 1-5 / Type back to exit~                |
+|  Please, enter a number between 1-5 / Type back to return to home~                |
 |_________________________________________________________________________|"
+      elsif input == "exit"
+        exit
       else
-        call
+        home
       end 
      end
-
+    end
+    
   def exit
     puts "
  _________________________________________________________________________
@@ -96,4 +97,4 @@ class ShapeCli::CLI
 |_________________________________________________________________________|"
 
  end 
-end 
+end
