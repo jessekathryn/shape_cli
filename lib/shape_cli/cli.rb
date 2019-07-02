@@ -1,6 +1,6 @@
 class ShapeCli::CLI 
   
-  def call
+  def home
     puts "
                                 SHAPE CLI 
  ________________________________________________________________________
@@ -13,43 +13,10 @@ class ShapeCli::CLI
 |________________________________________________________________________|" 
     menu
   end
-  
-  def display_articles
-   puts "
-                                Shape CLI  
- _________________________________________________________________________   
-| Enter a number from the list of latest popular topics in Lifestyle      |
-| below to view more details                                              |
-|                                                                         |"   
-    @article = ShapeCli::Article.popular
-    @article.each.with_index(1) do |a, i|
-     puts "| |#{i}|  #{a}                            |"
-    end
-    puts"|_________________________________________________________________________|"
-    input = nil
-      while input != "exit" && input != "N"
-        input = gets.strip  
-        
-        if input.to_i > 0 
-          the_article = @article[input.to_i - 1]
-          puts "
-                                SHAPE CLI 
- _________________________________________________________________________
-|                                                                         |
-|   #{the_article.name}                                                   |
-|   #{the_article.summary}                                                |
-|   #{the_article.url}                                                    |
-|   #{the_article.author}                                                 |
-|   #{the_article.author}                                                 |
-|   #{the_article.date}                                                   |
-|_________________________________________________________________________|"
 
-  end
-  
+
   def menu 
-    puts "
-                                SHAPE CLI 
- _________________________________________________________________________
+    puts "_________________________________________________________________________
 |                                                                         |
 |     Y = Yes, display articles / N = No, thank you                       |
 |_________________________________________________________________________|"
@@ -61,6 +28,8 @@ class ShapeCli::CLI
           puts display_articles
         when "N"  
           exit
+        when "back"
+          home
         when "exit"
           exit
         else
@@ -72,14 +41,59 @@ class ShapeCli::CLI
 |_________________________________________________________________________|"
           end        
         end
-      end
+      end  
+      
+  def display_articles
+   puts "
+                                Shape CLI  
+ _________________________________________________________________________   
+| Enter a number from the list of latest popular topics in Lifestyle      |
+| below to view more details                                              |
+|                                                                         |"   
+    @article = ShapeCli::Article.popular
+    @article.each.with_index(1) do |a, i|
+     puts "| |#{i}|  #{a.name}                            |"
+    end
+    puts"|_________________________________________________________________________|"
+    display_details
+   end
+  end  
+ 
+ def display_details   
+    input = nil
+      while input != "exit"
+      input = gets.strip  
     
-  
+      if input.to_i > 0 
+      the_article = @article[input.to_i - 1]
+      puts "
+                                SHAPE CLI 
+ _________________________________________________________________________
+|                                                                         |
+|   #{the_article.name}                                |
+|   #{the_article.summary}                        |
+|   #{the_article.url}                            |
+|   #{the_article.author}                         |
+|   #{the_article.author}                           |
+|   #{the_article.date}                                 |
+|_________________________________________________________________________|"
+      elsif input == ""
+        puts "
+ _________________________________________________________________________
+|                                                                         |
+|  Please, enter a number between 1-5 / Type back to exit~                |
+|_________________________________________________________________________|"
+      else
+        call
+      end 
+     end
+
   def exit
     puts "
  _________________________________________________________________________
 |                                                                         |
 |  Exiting.. Thank you for using Shape CLI! Have a nice day~              |
 |_________________________________________________________________________|"
-    end 
-  end
+
+ end 
+end 
