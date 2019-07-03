@@ -8,17 +8,15 @@ ________________________________________________________________________
  Shape CLI is a quick source for the latest popular topics in Lifestyle.
                                                                         
  Want tips and info on beauty, fashion, travel, health, sex, love and   
- everything else you need to live a fuller and happier life?            
-                                                                        
-________________________________________________________________________" 
+ everything else you need to live a fuller and happier life?" 
     menu
   end
 
 
   def menu 
-    puts "_______________________________________________________________________
+    puts "________________________________________________________________________
                                                                         
-     Y = Yes, display articles / N = No, thank you                      
+             Y = Yes, display articles / N = No, thank you                      
 ________________________________________________________________________"
      input = nil
       input = gets.strip
@@ -30,7 +28,7 @@ ________________________________________________________________________"
         when "back"
           puts home
         when "exit"
-          puts exit
+          exit
         else
           puts "
                                SHAPE CLI 
@@ -43,17 +41,16 @@ _________________________________________________________________________"
     
       
   def display_articles
-   puts "
+    puts "
                                Shape CLI  
  _________________________________________________________________________   
  
- Enter a number from the list of latest popular topics in Lifestyle      
- below to view more details                                              
+ Enter a number to view popular topic details :                                             
                                                                           "   
-    @article = ShapeCli::Article.popular
-    @article.each.with_index(1) do |a, i|
-     puts "| |#{i}|  #{a.name}"
-    end
+      @article = ShapeCli::Article.popular
+      @article.each.with_index(1) do |a, i|
+        puts "|#{i}|  #{a.name}"
+      end
     puts"________________________________________________________________________"
     display_details
    end
@@ -75,15 +72,34 @@ _________________________________________________________________________
    #{the_article.author}                         
    #{the_article.author}                         
    #{the_article.date}                           
+_________________________________________________________________________
+  
+  Would you like to read this article? Y/N
 _________________________________________________________________________"
+      
+      
       elsif input == ""
         puts "
 _________________________________________________________________________
                                                                         
-  Please, enter a number between 1-5 / Type back to return to home~        
+  Please, enter Y/N or back to return home~        
 _________________________________________________________________________"
-      elsif input == "exit"
-        exit
+      elsif input == "Y"
+ "
+_________________________________________________________________________
+      
+                        #{the_article.name}    
+                  
+    #{the_article.article_text}
+       
+
+_________________________________________________________________________
+                                                                        
+  Enter back to return home or exit ~        
+_________________________________________________________________________"     
+
+      elsif input == "exit" || input == "N"
+        puts exit
       else
         home
       end 
@@ -96,6 +112,5 @@ _________________________________________________________________________"
 |                                                                         |
 |  Exiting.. Thank you for using Shape CLI! Have a nice day~              |
 |_________________________________________________________________________|"
-
  end 
 end
