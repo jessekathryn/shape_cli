@@ -22,8 +22,8 @@ attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
     end
  
   def self.scrape_article_attr
-    article.site = "https://www.shape.com/lifestyle/mind-and-body/5-ways-change-your-life-good"
-    article.page = Nokogiri::HTML(open(site))
+    site = "https://www.shape.com/lifestyle/mind-and-body/5-ways-change-your-life-good"
+    page = Nokogiri::HTML(open(site))
     article = self.new
     article.name = page.css("h1.headline").text
     article.url = page.css("div.taxonomy-seo-links a").attr("href")
