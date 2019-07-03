@@ -27,10 +27,10 @@ attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
     article = self.new
     article.name = page.css("h1.headline").text
     article.url = page.css("div.taxonomy-seo-links a").attr("href")
-    article.summary = page.css("p.dek").text
-    article.author = page.css("span.bold.author-name").text
-    article.date = page.css("div.timestamp").text
-    article.article_text = page.css("p").text
+    article.summary = page.css("p.dek").text.strip
+    article.author = page.css("span.bold.author-name").text.strip
+    article.date = page.css("div.timestamp").text.strip
+    article.article_text = page.css("p").text.strip
     article
   end
 end
