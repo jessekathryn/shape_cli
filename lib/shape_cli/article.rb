@@ -2,35 +2,35 @@ class ShapeCli::Article
   
 attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
 
-  def self.popular
-    self.scrape_article
+  @@all = []
+
+  def initialize(shape_hash)
+    shape_hash.each {|key, value| self.send(("#{key}="), value)}
+        @@all << self
   end
 
-  def self.scrape_article
-    article = []
-    article << self.scrape_lifestyle
-    article << self.scrape_article_attr
-    article
-  end  
-  
-  def self.scrape_lifestyle
-    site = "https://www.shape.com/lifestyle"
-    page = Nokogiri::HTML(open(site)) 
-    article = self.new 
-    article.name = page.css("div h5 a").text
-    article
+  def self.create_from_collection(articles_array)
+    articles_array.each do |article|
+      Article.new(article)
     end
- 
-  def self.scrape_article_attr
-    site = "https://www.shape.com/lifestyle/mind-and-body/5-ways-change-your-life-good"
-    page = Nokogiri::HTML(open(site))
-    article = self.new
-    article.name = page.css("h1.headline").text
-    article.url = page.css("div.taxonomy-seo-links a").attr("href")
-    article.summary = page.css("p.dek").text.strip
-    article.author = page.css("span.bold.author-name").text.strip
-    article.date = page.css("div.timestamp").text.strip
-    article.article_text = page.css("p").text.strip
-    article
   end
+
+  def add_student_attributes(attributes_hash)
+    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
+  end
+
+  def self.all
+    @@all
+  end 
+  
+  #def self.popular
+   # self.scrape_article
+  #end
+
+  #def self.scrape_article
+   # article = []
+   # article << self.scrape_lifestyle
+   # article << self.scrape_article_attr
+   # article
+  #end  
 end
