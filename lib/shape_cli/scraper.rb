@@ -2,6 +2,20 @@ class ShapeCli::Scraper
   
 attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
   
+   def self.scrape_lifestyle_page()
+    doc = Nokogiri::HTML(open("https://www.shape.com/lifestyle"))
+    cards = []
+    doc.css(".student-card").each do |card|
+    student_hash = {}
+      student_hash[:location] = card.css("a div.card-text-container p").text
+      student_hash[:name] = card.css("h4").text
+      student_hash[:profile_url] = card.css("a").attribute("href").value
+      cards << student_hash
+      cards
+    end 
+    cards
+  end
+  
   def self.scrape_lifestyle
     site = "https://www.shape.com/lifestyle"
     page = Nokogiri::HTML(open(site)) 
