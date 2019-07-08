@@ -11,7 +11,7 @@ attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
 
   def self.create_from_collection(articles_array)
     articles_array.each do |article|
-      Article.new(article)
+      self.new(article)
     end
   end
 

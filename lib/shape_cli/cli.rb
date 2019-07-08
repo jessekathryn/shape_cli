@@ -47,8 +47,11 @@ _________________________________________________________________________"
  
  Enter a number to view popular topic details :                                             
                                                                           "   
-      @article = ShapeCli::Article.popular
-      @article.each.with_index(1) do |a, i|
+      articles_data = ShapeCli::Scraper.scrape_lifestyle_page
+      ShapeCli::Article.create_from_collection(articles_data)
+      @all = ShapeCli::Article.all
+    binding.pry 
+      @all.each.with_index(1) do |a, i|
         puts "|#{i}|  #{a.name}"
       end
     puts"_______________________________________________________________________"
