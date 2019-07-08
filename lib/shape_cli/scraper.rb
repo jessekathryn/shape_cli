@@ -5,15 +5,16 @@ attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
    def self.scrape_lifestyle_page()
     page = Nokogiri::HTML(open("https://www.shape.com/lifestyle"))
     articles = []
-    page.css("div.taxonomy-seo-links").each do |a|
+    page.css("div.taxonomy-seo-links a").each do |a|
     article_hash = {}
-      article_hash[:name] = a.css("div h5 a").text  
-      article_hash[:url] = a.css("a").attribute("href").value
+      article_hash[:name] = a.text  
+      article_hash[:url] = a.attribute("href").value
       articles << article_hash
       articles
     end 
     articles
   end
+  
  
   def self.scrape_article_page(url)
     page = Nokogiri::HTML(open(url))

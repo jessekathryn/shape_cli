@@ -50,7 +50,6 @@ _________________________________________________________________________"
       articles_data = ShapeCli::Scraper.scrape_lifestyle_page
       ShapeCli::Article.create_from_collection(articles_data)
       @all = ShapeCli::Article.all
-    binding.pry 
       @all.each.with_index(1) do |a, i|
         puts "|#{i}|  #{a.name}"
       end
