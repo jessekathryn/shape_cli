@@ -1,6 +1,6 @@
 class ShapeCli::Article
   
-attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
+attr_accessor :article, :name, :url, :summary, :date, :author, :text
 
   @@all = []
 

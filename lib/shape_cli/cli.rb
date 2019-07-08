@@ -19,12 +19,13 @@ ________________________________________________________________________
              Y = Yes, display articles / N = No, thank you                      
 ________________________________________________________________________"
      input = nil
+     while input != "exit"
       input = gets.strip
         case input
         when "Y" 
           puts display_articles
         when "N"  
-          puts exit
+          exit
         when "back"
           puts home
         when "exit"
@@ -38,7 +39,7 @@ _________________________________________________________________________
 _________________________________________________________________________"
       end        
     end
-    
+  end 
       
   def display_articles
     puts "
@@ -62,6 +63,7 @@ _________________________________________________________________________"
     attributes = ShapeCli::Scraper.scrape_article_page(a.url)
     a.add_article_attributes(attributes)
   end
+  
     input = nil
       while input != "exit"
       input = gets.strip  
@@ -77,21 +79,23 @@ _________________________________________________________________________
        #{the_article.summary}
     
        #{the_article.url}                            
-       #{the_article.author}                         
+       #{the_article.author}      
        #{the_article.date}   
+       
+       #{the_article.text}  
 _________________________________________________________________________
                                                                         
-  Please, enter Y/N or back to return home~        
+  All set? Enter back to return home or exit~        
 _________________________________________________________________________" 
      
       elsif input == ""
         puts "
 _________________________________________________________________________
-                                                                        
-  Y/N or back to return home~        
+                                                                     
+Enter back to return home and exit to leave~        
 _________________________________________________________________________" 
       elsif input == "exit" || input == "N"
-        puts exit
+        exit
       else
         home
       end 

@@ -1,6 +1,6 @@
 class ShapeCli::Scraper
   
-attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
+attr_accessor :article, :name, :url, :summary, :date, :author, :text
   
    def self.scrape_lifestyle_page
     page = Nokogiri::HTML(open("https://www.shape.com/lifestyle"))
