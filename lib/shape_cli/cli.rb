@@ -57,19 +57,23 @@ _________________________________________________________________________"
     display_details
    end
  
- def display_details   
+ def display_details  
+    ShapeCli::Article.all.each do |a|
+    attributes = ShapeCli::Scraper.scrape_article_page(a.url)
+    a.add_article_attributes(attributes)
+  end
     input = nil
       while input != "exit"
       input = gets.strip  
     
       if input.to_i > 0 
-      the_article = @article[input.to_i - 1]
+      the_article = @all[input.to_i - 1]
       puts "
                                 SHAPE CLI 
 _________________________________________________________________________
    
        #{the_article.name} 
-       
+    
        #{the_article.summary} 
        
        #{the_article.url}                            

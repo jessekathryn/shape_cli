@@ -15,8 +15,8 @@ attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
     end
   end
 
-  def add_student_attributes(attributes_hash)
-    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
+  def add_article_attributes(article_page)
+    article_page.each {|key, value| self.send(("#{key}="), value)}
   end
 
   def self.all
