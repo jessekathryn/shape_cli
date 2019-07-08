@@ -74,11 +74,11 @@ _________________________________________________________________________
    
        #{the_article.name} 
     
-       #{the_article.summary} 
-       
+       #{the_article.summary}
+    
        #{the_article.url}                            
        #{the_article.author}                         
-       #{the_article.date}                           
+       #{the_article.date}   
 _________________________________________________________________________
                                                                         
   Please, enter Y/N or back to return home~        
