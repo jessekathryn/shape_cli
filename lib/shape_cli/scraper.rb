@@ -7,7 +7,7 @@ attr_accessor :article, :name, :url, :summary, :date, :author, :article_text
     articles = []
     page.css("div.taxonomy-seo-links a").each do |a|
     article_hash = {}
-      article_hash[:name] = a.text  
+      article_hash[:name] = a.text.strip  
       article_hash[:url] = a.attribute("href").value
       articles << article_hash
       articles
