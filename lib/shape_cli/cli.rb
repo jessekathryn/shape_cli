@@ -25,11 +25,11 @@ ________________________________________________________________________
       input = gets.strip
       
         case input
-        when "1" 
+        when "1", "2" 
          display_details(input.to_i)
         when "N"  
           exit
-       # when "back"
+       #when "back"
           #puts home
         when "exit"
           exit

@@ -22,15 +22,4 @@ attr_accessor :article, :name, :url, :summary, :date, :author, :text
   def self.all
     @@all
   end 
-  
-  #def self.popular
-   # self.scrape_article
-  #end
-
-  #def self.scrape_article
-   # article = []
-   # article << self.scrape_lifestyle
-   # article << self.scrape_article_attr
-   # article
-  #end  
 end
