@@ -14,20 +14,23 @@ ________________________________________________________________________
 
 
   def menu 
-    puts "________________________________________________________________________
-                                                                        
-             Y = Yes, display articles / N = No, thank you                      
-________________________________________________________________________"
-     input = nil
+    articles_data = ShapeCli::Scraper.scrape_lifestyle_page
+    ShapeCli::Article.create_from_collection(articles_data)
+    input = nil
      while input != "exit"
+      display_articles
+        puts "
+        Enter Exit to exit or N
+        "
       input = gets.strip
+      
         case input
-        when "Y" 
-          puts display_articles
+        when "1" 
+         display_details(input.to_i)
         when "N"  
           exit
-        when "back"
-          puts home
+       # when "back"
+          #puts home
         when "exit"
           exit
         else
@@ -48,25 +51,22 @@ _________________________________________________________________________"
  
  Enter a number to view popular topic details :                                             
                                                                           "   
-      articles_data = ShapeCli::Scraper.scrape_lifestyle_page
-      ShapeCli::Article.create_from_collection(articles_data)
       @all = ShapeCli::Article.all
       @all.each.with_index(1) do |a, i|
         puts "|#{i}|  #{a.name}"
       end
     puts"_______________________________________________________________________"
-    display_details
    end
  
- def display_details  
+ def display_details(input)  
     ShapeCli::Article.all.each do |a|
     attributes = ShapeCli::Scraper.scrape_article_page(a.url)
     a.add_article_attributes(attributes)
   end
   
-    input = nil
-      while input != "exit"
-      input = gets.strip  
+    #input = nil
+      #while input != "exit"
+      #input = gets.strip  
     
       if input.to_i > 0 
       the_article = @all[input.to_i - 1]
@@ -83,22 +83,19 @@ _________________________________________________________________________
        #{the_article.date}   
        
        #{the_article.text}  
-_________________________________________________________________________
-                                                                        
-  All set? Enter back to return home or exit~        
 _________________________________________________________________________" 
      
-      elsif input == ""
-        puts "
-_________________________________________________________________________
+      #elsif input == ""
+        #puts "
+#_________________________________________________________________________
                                                                      
-Enter back to return home and exit to leave~        
-_________________________________________________________________________" 
-      elsif input == "exit" || input == "N"
-        exit
-      else
-        home
-      end 
+#Enter back to return home and exit to leave~        
+#_________________________________________________________________________" 
+      #elsif input == "exit" || input == "N"
+        #exit
+      #else
+        #home
+      #end 
      end
     end
     
