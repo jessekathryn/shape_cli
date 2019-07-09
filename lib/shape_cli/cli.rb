@@ -4,11 +4,11 @@ class ShapeCli::CLI
     puts "
                                SHAPE CLI 
 ________________________________________________________________________
-                                                                        
  Shape CLI is a quick source for the latest popular topics in Lifestyle.
                                                                         
  Want tips and info on beauty, fashion, travel, health, sex, love and   
- everything else you need to live a fuller and happier life?" 
+ everything else you need to live a fuller and happier life? Chose an 
+ article from below:"
     menu
   end
 
@@ -20,25 +20,22 @@ ________________________________________________________________________
      while input != "exit"
       display_articles
         puts "
-        Enter Exit to exit or N
+_________________________________________________________________________
+Enter Exit to exit 
         "
       input = gets.strip
       
         case input
-        when "1", "2" 
+        when "1", "2", "3"," 4"," 5"
          display_details(input.to_i)
         when "N"  
           exit
-       #when "back"
-          #puts home
         when "exit"
           exit
         else
           puts "
-                               SHAPE CLI 
 _________________________________________________________________________
-                                                                         
-     Y = Yes, display articles / N = No, thank you, let's exit  :        
+Type Menu to return to articles or exit        
 _________________________________________________________________________"
       end        
     end
@@ -46,16 +43,15 @@ _________________________________________________________________________"
       
   def display_articles
     puts "
-                               Shape CLI  
- ________________________________________________________________________   
- 
- Enter a number to view popular topic details :                                             
+________________________________________________________________________   
                                                                           "   
       @all = ShapeCli::Article.all
       @all.each.with_index(1) do |a, i|
         puts "|#{i}|  #{a.name}"
       end
-    puts"_______________________________________________________________________"
+    puts"
+Enter the article number to read 
+_______________________________________________________________________"
    end
  
  def display_details(input)  
@@ -64,46 +60,26 @@ _________________________________________________________________________"
     a.add_article_attributes(attributes)
   end
   
-    #input = nil
-      #while input != "exit"
-      #input = gets.strip  
-    
-      if input.to_i > 0 
-      the_article = @all[input.to_i - 1]
+    if input.to_i > 0 
+     the_article = @all[input.to_i - 1]
       puts "
-                                SHAPE CLI 
+                       #{the_article.name} Details
+                         #{the_article.url} 
 _________________________________________________________________________
-   
-       #{the_article.name} 
-    
        #{the_article.summary}
     
-       #{the_article.url}                            
        #{the_article.author}      
        #{the_article.date}   
-       
-       #{the_article.text}  
+Text:    
+'#{the_article.text} '
 _________________________________________________________________________" 
-     
-      #elsif input == ""
-        #puts "
-#_________________________________________________________________________
-                                                                     
-#Enter back to return home and exit to leave~        
-#_________________________________________________________________________" 
-      #elsif input == "exit" || input == "N"
-        #exit
-      #else
-        #home
-      #end 
      end
     end
     
   def exit
     puts "
- _________________________________________________________________________
-|                                                                         |
-|  Exiting.. Thank you for using Shape CLI! Have a nice day~              |
-|_________________________________________________________________________|"
+_________________________________________________________________________
+  Exiting.. Thank you for using Shape CLI! Have a nice day~              
+_________________________________________________________________________"
  end 
 end
