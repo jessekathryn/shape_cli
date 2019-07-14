@@ -3,7 +3,7 @@ class ShapeCli::CLI
   def home
     puts "
                                SHAPE CLI 
-________________________________________________________________________
+_________________________________________________________________________
  Shape CLI is a quick source for the latest popular topics in Lifestyle.
                                                                         
  Want tips and info on beauty, fashion, travel, health, sex, love and   
@@ -19,10 +19,10 @@ ________________________________________________________________________
     input = nil
      while input != "exit"
       display_articles
-        puts "
-_________________________________________________________________________
-Enter Exit to exit 
-        "
+        #puts "
+#_____________________________________________________________________
+#Enter exit to Exit 
+        #"
       input = gets.strip
       
         case input
@@ -43,7 +43,7 @@ _________________________________________________________________________"
       
   def display_articles
     puts "
-________________________________________________________________________   
+__________________________________________________________________________ 
                                                                           "   
       @all = ShapeCli::Article.all
       @all.each.with_index(1) do |a, i|
@@ -51,10 +51,11 @@ ________________________________________________________________________
       end
     puts"
 Enter the article number to read 
-_______________________________________________________________________"
+__________________________________________________________________________"
    end
  
  def display_details(input)  
+  puts "loading..."
     ShapeCli::Article.all.each do |a|
     attributes = ShapeCli::Scraper.scrape_article_page(a.url)
     a.add_article_attributes(attributes)
@@ -62,24 +63,19 @@ _______________________________________________________________________"
   
     if input.to_i > 0 
      the_article = @all[input.to_i - 1]
-      puts "
-                       #{the_article.name} Details
-                         #{the_article.url} 
-_________________________________________________________________________
-       #{the_article.summary}
+puts"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+'#{the_article.name}:  #{the_article.summary}'
     
-       #{the_article.author}      
-       #{the_article.date}   
-Text:    
-'#{the_article.text} '
-_________________________________________________________________________" 
+#{the_article.author}      
+#{the_article.date}   
+Text:  '#{the_article.text}'" 
      end
     end
     
   def exit
     puts "
-_________________________________________________________________________
+___________________________________________________________________________
   Exiting.. Thank you for using Shape CLI! Have a nice day~              
-_________________________________________________________________________"
+___________________________________________________________________________"
  end 
 end
