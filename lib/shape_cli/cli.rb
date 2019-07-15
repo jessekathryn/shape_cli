@@ -2,7 +2,7 @@ class ShapeCli::CLI
   
   def home
     puts "
-                             SHAPE CLI 
+                              SHAPE CLI 
 _________________________________________________________________________
 Shape CLI is a quick source for the latest popular topics in Lifestyle.
                                                                         
@@ -17,13 +17,15 @@ _________________________________________________________________________
      while input != "exit"
       input = gets.strip
       case input
+       when "EXIT" 
+         exit
+       when "NO"
+         exit
        when "YES"
          puts "_________________________________________________________________________
 Loading..."
          articles
          menu
-       when "NO"
-         exit
       end
     end
   end
@@ -38,21 +40,23 @@ Loading..."
     input = nil
      while input != "exit"
       input = gets.strip
-       display_articles
+       #display_articles
       case input
+        when "exit"
+         exit
         when "1", "2", "3", "4", "5"
          display_details(input.to_i)
           puts "Complete. 
 SCROLL UP to read entire article from SHAPE.com/Lifetstyle
 _________________________________________________________________________
-- EXIT to quit or - BACK to return home
+- EXIT to proceed to exit menu or - BACK to return home
 "
+        when "EXIT" 
+          exit
+        when "BACK"
+          display_articles
         when "NO"  
           exit
-        when "EXIT"
-          exit
-        when "back"
-          menu
       end        
     end
   end 
@@ -60,7 +64,7 @@ _________________________________________________________________________
   def display_articles
     puts "_________________________________________________________________________
 Trending on Lifestyle:
-"   
+                                  "   
 
       @all = ShapeCli::Article.all
       @all.each.with_index(1) do |a, i|
@@ -72,7 +76,10 @@ _________________________________________________________________________"
    end
  
  def display_details(input)  
-  puts "Loading...
+  puts "
+_________________________________________________________________________
+
+Loading...
 _________________________________________________________________________"
     ShapeCli::Article.all.each do |a|
     attributes = ShapeCli::Scraper.scrape_article_page(a.url)
@@ -81,10 +88,10 @@ _________________________________________________________________________"
   
     if input.to_i > 0 
      the_article = @all[input.to_i - 1]
-puts"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+puts"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 '#{the_article.name}: 
 #{the_article.summary}'
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    
 #{the_article.author}      
 #{the_article.date}  
 
@@ -96,7 +103,7 @@ _________________________________________________________________________"
   def exit
     puts "
 _________________________________________________________________________
-Exiting... Thank you for using Shape CLI!  Have a nice day~              
+Type 'exit' to see quit menu.  Thank you for using Shape CLI!  Have a nice day~
 _________________________________________________________________________"
  end 
 end
