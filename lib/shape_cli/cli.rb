@@ -2,9 +2,10 @@ class ShapeCli::CLI
   
   def home
     puts "
-                              SHAPE CLI 
+                        SHAPE.com/lifestyle CLI 
 _________________________________________________________________________
-Shape CLI is a quick source for the latest popular topics in Lifestyle.
+Welcome to a quick source for the latest popular topics in Lifestyle 
+from SHAPE Magazine's digital issue.
                                                                         
 Want tips and info on beauty, fashion, travel, health, sex, love and   
 everything else you need to live a fuller and happier life? 
@@ -49,14 +50,14 @@ Loading..."
           puts "Complete. 
 SCROLL UP to read entire article from SHAPE.com/Lifetstyle
 _________________________________________________________________________
-- EXIT to proceed to exit menu or - BACK to return home
+- EXIT to quit or - BACK to return home
 "
         when "EXIT" 
-          exit
+          exit_cli
         when "BACK"
           display_articles
         when "NO"  
-          exit
+          exit_cli
       end        
     end
   end 
@@ -100,10 +101,12 @@ _________________________________________________________________________"
      end
     end
     
-  def exit
+  def exit_cli
     puts "
 _________________________________________________________________________
-Type 'exit' to see quit menu.  Thank you for using Shape CLI!  Have a nice day~
+Thank you for using Shape CLI!  Have a nice day~
 _________________________________________________________________________"
- end 
+
+    exit
+  end 
 end
