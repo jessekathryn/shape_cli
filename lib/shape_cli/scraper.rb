@@ -24,7 +24,7 @@ attr_accessor :article, :name, :url, :summary, :date, :author, :text
     article_page[:summary] = page.css("p.dek").text.strip
     article_page[:author] = page.css("span.bold.author-name").text.strip
     article_page[:date] = page.css("div.timestamp").text.strip
-    article_page[:text] = page.css("p").text.chomp.strip
+    article_page[:text] = page.css("p").text.chomp.strip.split.join(" ")
     article_page
   end
 end 
