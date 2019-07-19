@@ -77,18 +77,18 @@ _________________________________________________________________________"
    end
  
  def display_details(input)  
+  if input.to_i > 0 
+     the_article = @all[input.to_i - 1]
+
   puts "
 _________________________________________________________________________
 
 Loading...
 _________________________________________________________________________"
-    ShapeCli::Article.all.each do |a|
-    attributes = ShapeCli::Scraper.scrape_article_page(a.url)
-    a.add_article_attributes(attributes)
-  end
+    #the_article = ShapeCli::Article.all
+    attributes = ShapeCli::Scraper.scrape_article_page(the_article.url)
+    the_article.add_article_attributes(attributes)
   
-    if input.to_i > 0 
-     the_article = @all[input.to_i - 1]
 puts"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 '#{the_article.name}: 
 #{the_article.summary}'
@@ -99,7 +99,7 @@ puts"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Text: '#{the_article.text}' 
 _________________________________________________________________________" 
      end
-    end
+   end
     
   def exit_cli
     puts "
