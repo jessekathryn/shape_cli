@@ -45,12 +45,18 @@ Loading..."
       case input
         when "exit"
          exit
+        when "0", "", "6", "7", "8", "9", "10"
+          puts "Please enter a number listed above..."
+        when input.to_i > @all.count
+          "Please enter a number between 1-#{@all.count}"
+          puts "Please enter a number listed..."
         when "1", "2", "3", "4", "5"
          display_details(input.to_i)
-          puts "Complete. 
+          puts "Complete!...
+          
 SCROLL UP to read entire article from SHAPE.com/Lifetstyle
 _________________________________________________________________________
-- EXIT to quit or - BACK to return home
+- EXIT to quit or - BACK to return to article list
 "
         when "EXIT" 
           exit_cli
@@ -77,7 +83,8 @@ _________________________________________________________________________"
    end
  
  def display_details(input)  
-  if input.to_i > 0 
+
+  if input.to_i <= @all.count
      the_article = @all[input.to_i - 1]
 
   puts "
