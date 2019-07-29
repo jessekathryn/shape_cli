@@ -41,29 +41,23 @@ Loading..."
     input = nil
      while input != "exit"
       input = gets.strip
-       #display_articles
-      case input
-        when "exit"
-         exit
-        when "0", "", "6", "7", "8", "9", "10"
-          puts "Please enter a number listed above..."
-        when input.to_i > @all.count
-          "Please enter a number between 1-#{@all.count}"
-          puts "Please enter a number listed..."
-        when "1", "2", "3", "4", "5"
+      #binding.pry
+       if input == "exit"
+         exit_cli
+       elsif input.to_i <= 0 || input.to_i > @all.count
+         puts "Please enter a number between 1-#{@all.count}"
+         display_articles
+       elsif  input.to_i > 0 && input.to_i <= @all.count
          display_details(input.to_i)
-          puts "Complete!...
+         puts "Complete!...
           
 SCROLL UP to read entire article from SHAPE.com/Lifetstyle
 _________________________________________________________________________
 - EXIT to quit or - BACK to return to article list
 "
-        when "EXIT" 
-          exit_cli
-        when "BACK"
+        else 
+          puts "Must pick a number to proceed"
           display_articles
-        when "NO"  
-          exit_cli
       end        
     end
   end 
@@ -93,9 +87,10 @@ _________________________________________________________________________
 Loading...
 _________________________________________________________________________"
     #the_article = ShapeCli::Article.all
+   if !the_article.summary
     attributes = ShapeCli::Scraper.scrape_article_page(the_article.url)
     the_article.add_article_attributes(attributes)
-  
+   end
 puts"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 '#{the_article.name}: 
 #{the_article.summary}'
@@ -107,6 +102,7 @@ Text: '#{the_article.text}'
 _________________________________________________________________________" 
      end
    end
+   
     
   def exit_cli
     puts "
